@@ -1,21 +1,23 @@
 package br.com.alura.rh.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
-public class Funcionario {
+public class Terceirizado {
 
 	private DadosPessoais dadosPessoais;
 
-	private LocalDate dataUltimoReajuste;
+	private String empresa;
 
-	public Funcionario(String nome, String cpf, Cargo cargo, BigDecimal salario) {
-		this.dadosPessoais = new DadosPessoais(nome, cpf, cargo, salario);
+	public Terceirizado(String nome, String cpf, Cargo cargo, BigDecimal salario) {
+		dadosPessoais = new DadosPessoais(nome, cpf, cargo, salario);
 	}
 
-	public void atualizarSalario(BigDecimal novoSalario) {
-		dadosPessoais.setSalario(novoSalario);
-		this.dataUltimoReajuste = LocalDate.now();
+	public String getEmpresa() {
+		return empresa;
+	}
+
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
 	}
 
 	public String getNome() {
@@ -48,17 +50,5 @@ public class Funcionario {
 
 	public void setSalario(BigDecimal salario) {
 		dadosPessoais.setSalario(salario);
-	}
-
-	public LocalDate getDataUltimoReajuste() {
-		return dataUltimoReajuste;
-	}
-
-	public void setDataUltimoReajuste(LocalDate dataUltimoReajuste) {
-		this.dataUltimoReajuste = dataUltimoReajuste;
-	}
-
-	public void promover(Cargo novoCargo) {
-		dadosPessoais.setCargo(novoCargo);
 	}
 }
